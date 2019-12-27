@@ -1,8 +1,7 @@
 /** My utilities */
-.bs-salem {
-  box-shadow: 5px 5px 0;
-  padding-left: 3px;
-  margin-left: -3px;
+.border-salem {
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
 }
 
 .entry-salem {
