@@ -133,5 +133,41 @@
         </div>
       </div>
     </div>
+    <script>
+(function() {
+  var idx = -1;
+  var konamiCode = [
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a",
+    "Enter"
+  ];
+
+  document.addEventListener("keydown", function(e) {
+    var expected = konamiCode[idx+1];
+    if (e.key === expected) {
+      idx++;
+    } else {
+      idx = -1;
+    }
+    if (idx === konamiCode.length - 1) {
+      document.body.classList.add("rainbow");
+      document.body.classList.remove("bg-yellow");
+      setTimeout(function() {
+        document.body.classList.remove("rainbow");
+        document.body.classList.add("bg-yellow");
+        idx = -1;
+      }, 1000);
+    }
+  }, false);
+})()
+    </script>
   </body>
 </html>
