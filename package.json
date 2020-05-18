@@ -1,0 +1,25 @@
+{
+    "name": "salem.io",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:salemhilal/salem.io.git",
+    "author": "<salemhilal@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "build": "eleventy",
+        "serve": "eleventy --serve"
+    },
+    "devDependencies": {
+        "prettier": "^2.0.5"
+    },
+    "dependencies": {
+        "@11ty/eleventy": "^0.10.0",
+        "@11ty/eleventy-plugin-rss": "^1.0.7",
+        "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+        "@toycode/markdown-it-class": "^1.2.4",
+        "clean-css": "^4.2.3",
+        "eleventy-plugin-lazyimages": "^1.1.1",
+        "markdown-it": "^10.0.0",
+        "moment": "^2.25.3"
+    }
+}

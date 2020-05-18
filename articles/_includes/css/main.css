@@ -1,0 +1,104 @@
+/** My utilities */
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.banana-black {
+    color: #1a1604;
+}
+
+.border-salem {
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+
+.entry-salem {
+    position: relative;
+}
+
+.fade-in {
+    -webkit-animation: fade-in 0.1s ease;
+    -z-animation: fade-in 0.1s ease;
+    -o-animation: fade-in 0.1s ease;
+    animation: fade-in 0.1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation-name: fadeIn;
+}
+
+/* Thank you, https://codepen.io/nohoid/pen/kIfto */
+.rainbow {
+    background: linear-gradient(
+        124deg,
+        #ff2400,
+        #e81d1d,
+        #e8b71d,
+        #e3e81d,
+        #1de840,
+        #1ddde8,
+        #2b1de8,
+        #dd00f3,
+        #dd00f3
+    );
+    background-size: 19% 15%;
+    -webkit-animation: rainbow 0.5s ease infinite;
+    -z-animation: rainbow 0.5s ease infinite;
+    -o-animation: rainbow 0.5s ease infinite;
+    animation: rainbow 0.5s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        background-position: 0% 82%;
+    }
+    50% {
+        background-position: 100% 19%;
+    }
+    100% {
+        background-position: 0% 82%;
+    }
+}
+@-moz-keyframes rainbow {
+    0% {
+        background-position: 0% 82%;
+    }
+    50% {
+        background-position: 100% 19%;
+    }
+    100% {
+        background-position: 0% 82%;
+    }
+}
+@-o-keyframes rainbow {
+    0% {
+        background-position: 0% 82%;
+    }
+    50% {
+        background-position: 100% 19%;
+    }
+    100% {
+        background-position: 0% 82%;
+    }
+}
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%;
+    }
+    50% {
+        background-position: 100% 19%;
+    }
+    100% {
+        background-position: 0% 82%;
+    }
+}

@@ -1,0 +1,9 @@
+---
+permalink: style.css
+---
+{% set css %}
+    {% include "css/main.css" %}
+    {% include "css/tachyons.css" %}
+    {% include "css/prism-nord.css" %}
+{% endset %}
+{{css | cssmin | safe}}
