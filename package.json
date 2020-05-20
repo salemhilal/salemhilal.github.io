@@ -6,8 +6,11 @@
     "author": "<salemhilal@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "build": "eleventy",
-        "serve": "eleventy --serve"
+        "compile": "eleventy",
+        "post-build": "yarn uncss dist/**/*.html -C dist/ -H dist/ -o dist/style.css",
+        "build": "eleventy && yarn run post-build",
+        "serve": "yarn run http-server dist/",
+        "dev": "eleventy --serve"
     },
     "devDependencies": {
         "prettier": "^2.0.5"
@@ -19,7 +22,9 @@
         "@toycode/markdown-it-class": "^1.2.4",
         "clean-css": "^4.2.3",
         "eleventy-plugin-lazyimages": "^1.1.1",
+        "http-server": "^0.12.3",
         "markdown-it": "^10.0.0",
-        "moment": "^2.25.3"
+        "moment": "^2.25.3",
+        "uncss": "^0.17.3"
     }
 }

@@ -230,36 +230,19 @@ better off with something simpler. Adding JavaScript to the mix just increases
 the list of things you need to worry about, and gets you little in return.</p>
 <p class="f5 mb3 lh-copy banana-black">I could ride a helicopter to get to work, but wouldn’t a bicycle be more fun?</p>
 
+        <!-- I, a sinner, submit myself to JavaScript -->
+<script>
+// Lazy load images
+!function(e,t,s){if("loading"in HTMLImageElement.prototype){var n=document.querySelectorAll(".lazy-load"),a=n.length;if(a>0)for(var c=0;c<a;c++)n[c].src=n[c].dataset.src,"srcset"in n[c].dataset&&(n[c].srcset=n[c].dataset.srcset)}else{var r=document.createElement("script");r.async=!0,r.src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js",document.body.appendChild(r)}}()
+
+// GAE
+!function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},a=t.createElement(i),c=t.getElementsByTagName(i)[0],a.async=!0,a.src="https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js",c.parentNode.insertBefore(a,c)}(window,document,"galite","script");
+galite('create', 'UA-3331012-7', 'auto');
+galite('send', 'pageview');
+</script>
+
 			
 		
 	
 
-</div></div><script>
-            (function(selector, src, preferNativeLazyLoad) {
-  if (preferNativeLazyLoad && 'loading' in HTMLImageElement.prototype) {
-    var images = document.querySelectorAll(selector);
-    var numImages = images.length;
-
-    if (numImages > 0) {
-      for (var i = 0; i < numImages; i++) {
-        images[i].src = images[i].dataset.src;
-
-        if ('srcset' in images[i].dataset) {
-          images[i].srcset = images[i].dataset.srcset;
-        }
-      }
-    }
-
-    return;
-  }
-
-  var script = document.createElement('script');
-  script.async = true;
-  script.src = src;
-  document.body.appendChild(script);
-})(
-              '.lazy-load',
-              'https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js',
-              true
-            );
-          </script></body></html>
+</div></div></body></html>

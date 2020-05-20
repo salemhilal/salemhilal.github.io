@@ -5,7 +5,7 @@
  */
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const rss = require("@11ty/eleventy-plugin-rss");
-const lazyImagesPlugin = require("eleventy-plugin-lazyimages");
+const lazyImages = require("eleventy-plugin-lazyimages");
 const md = require("markdown-it");
 const mdClass = require("@toycode/markdown-it-class");
 const moment = require("moment");
@@ -76,8 +76,15 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(rss);
 
     // Lazy load images
-    eleventyConfig.addPlugin(lazyImagesPlugin, {
+    eleventyConfig.addPlugin(lazyImages, {
+        // Let's mean it
         imgSelector: ".lazy-load",
+        // We put the init script in _includes/partials/scripts.njk
+        appendInitScript: false,
+        // This plugin thinks that paths in generated files are
+        // relative to this file (.eleventy.js), so we have to let it
+        // know that they're actually relative to the `articles`
+        // directory.
         transformImgPath: (imgPath) => {
             return join("./articles", imgPath);
         },

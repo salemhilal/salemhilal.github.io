@@ -41,6 +41,7 @@
 			<div class="mb4 mt5 mb5-ns mt6-ns">
         <small>{{ page.date | formatDate }}</small>
 				{{ content | safe }}
+        {% include 'partials/scripts.njk' %}
 			</body>
 		</html>
 	</body>
