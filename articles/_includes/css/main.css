@@ -1,3 +1,8 @@
+/** lazy load */
+.no-js .lazy {
+    display: none;
+}
+
 /** My utilities */
 body {
     font-family: "IBM Plex Sans", sans-serif;

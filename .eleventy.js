@@ -62,7 +62,10 @@ const figureShortcode = (image, caption, altText) => {
         : "";
     return `<figure class="mt4 mb4 mh0">
             <a href="${image}">
-                <img class="lazy-load img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
+                <img class="lazy img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
+                <noscript>
+                    <img class="img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
+                </noscript>
             </a>
             ${captionMarkup}
         </figure>`;
@@ -78,7 +81,7 @@ module.exports = function (eleventyConfig) {
     // Lazy load images
     eleventyConfig.addPlugin(lazyImages, {
         // Let's mean it
-        imgSelector: ".lazy-load",
+        imgSelector: ".lazy",
         // We put the init script in _includes/partials/scripts.njk
         appendInitScript: false,
         // This plugin thinks that paths in generated files are
