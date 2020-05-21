@@ -91,6 +91,7 @@ module.exports = function (eleventyConfig) {
         transformImgPath: (imgPath) => {
             return join("./articles", imgPath);
         },
+        preferNativeLazyLoad: false,
     });
 
     // BUILD-TIME SYNTAX HIGHLIGHTING WOOOO

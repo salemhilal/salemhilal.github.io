@@ -70,7 +70,7 @@ a measure of the longest time a user would have to wait between when they tried
 to interact with the page (a click or tap, for example) and when the page
 actually responded to that interaction.
 
-{% figure "/eleventy/gatsby-lighthouse.png" "I generated these scores from my laptop. Imagine what they might look like on a real phone." "A screenshot of Gatsby's lighthouse score, showing a performance score of 72 out of 100" %}
+{% figure "/eleventy/gatsby-lighthouse.jpg" "I generated these scores from my laptop. Imagine what they might look like on a real phone." "A screenshot of Gatsby's lighthouse score, showing a performance score of 72 out of 100" %}
 
 Why does Gatsby score so poorly on these measurements? For one, Gatsby takes
 advantage of a React optimization called server-side rendering. Typically, React
@@ -105,14 +105,14 @@ Cloud][gatsby-cloud]'s homepage similarly loads as expected, but actually wipes
 itself clean once that same error is thrown (presumably because the exception
 lies somewhere in the rendering step).
 
-{% figure "/eleventy/gatsby-cloud-ie11.png" "Minimalism at its purest." "A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages." %}
+{% figure "/eleventy/gatsby-cloud-ie11.jpg" "Minimalism at its purest." "A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages." %}
 
 Edge 16 doesn't even make it that far; when loading the Gatsby homepage, it ran
 into unexplained errors trying to render the page, meaning nothing showed up at
 all. For what it's worth, it did appear to load the Gatsby Cloud homepage just
 fine.
 
-{% figure "/eleventy/gatsby-edge-16.png" "To be fair, Edge 16 breaking isn't the most surprising thing ever." "A screenshot of Edge 16 with an error message stating that the page has a problem loading." %}
+{% figure "/eleventy/gatsby-edge-16.jpg" "To be fair, Edge 16 breaking isn't the most surprising thing ever." "A screenshot of Edge 16 with an error message stating that the page has a problem loading." %}
 
 To be clear, I don't think IE11 or Edge 16 are particularly important browsers
 to support. Neither of them represent a ton of traffic, and neither of them are
@@ -130,7 +130,7 @@ network connectivity. Gatsby frequently loads additional components as you
 browse around the site, and even as you scroll around an individual page. Here's
 what my network tab looks like after scrolling to the bottom of the page:
 
-{% figure "/eleventy/gatsby-component-requests.png" "For bonus points, check out the transfer size and the request count." "A screenshot of the network tab in Chrome's debugger on Gatsby's homepage, full of small fetch, json, and xhr requests." %}
+{% figure "/eleventy/gatsby-component-requests.jpg" "For bonus points, check out the transfer size and the request count." "A screenshot of the network tab in Chrome's debugger on Gatsby's homepage, full of small fetch, json, and xhr requests." %}
 
 These requests continue as you browse around the rest of the site; navigating to
 "Docs" kicks off an additional 37 requests over the network, even with service
@@ -169,7 +169,7 @@ For comparison's sake, the 11ty homepage loads around 80kb (567kb if you scroll
 to the bottom and load all the asynchronous content), has 6kb of JavaScript, and
 has a beautiful Lighthouse score.
 
-{% figure "/eleventy/11ty-lighthouse.png" "These scores make Dale Earnhardt Jr. look like drying paint." "A screenshot of Eleventy's Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100" %}
+{% figure "/eleventy/11ty-lighthouse.jpg" "These scores make Dale Earnhardt Jr. look like drying paint." "A screenshot of Eleventy's Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100" %}
 
 ### It is really easy to extend.
 

@@ -4,7 +4,7 @@
     <subtitle>Help I&#39;m stuck in this blog</subtitle>
     <link href="https://salem.io/feed.xml" rel="self"/>
     <link href="https://salem.io/"/>
-    <updated>2020-05-18T00:03:09.302-04:00</updated>
+    <updated>2020-05-20T21:35:05.581-04:00</updated>
     <id>https://salem.io/</id>
     <author>
         <name>Salem Hilal</name>
@@ -14,7 +14,7 @@
         <entry>
             <title>A static blog probably doesn&#39;t need React.</title>
             <link href="https://salem.io/eleventy/"/>
-            <updated>2020-05-18T00:03:09.302-04:00</updated>
+            <updated>2020-05-20T21:35:05.581-04:00</updated>
             <id>https://salem.io/eleventy/</id>
             <content type="html">&lt;!--
 #### TODO:
@@ -70,10 +70,10 @@ a measure of the longest time a user would have to wait between when they tried
 to interact with the page (a click or tap, for example) and when the page
 actually responded to that interaction.&lt;/p&gt;
 &lt;figure class=&quot;mt4 mb4 mh0&quot;&gt;
-            &lt;a href=&quot;https://salem.io/eleventy/gatsby-lighthouse.png&quot;&gt;
-                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-lighthouse.png&quot; alt=&quot;A screenshot of Gatsby&#39;s lighthouse score, showing a performance score of 72 out of 100&quot;&gt;
+            &lt;a href=&quot;https://salem.io/eleventy/gatsby-lighthouse.jpg&quot;&gt;
+                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-lighthouse.jpg&quot; alt=&quot;A screenshot of Gatsby&#39;s lighthouse score, showing a performance score of 72 out of 100&quot;&gt;
                 &lt;noscript&gt;
-                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-lighthouse.png&quot; alt=&quot;A screenshot of Gatsby&#39;s lighthouse score, showing a performance score of 72 out of 100&quot;&gt;
+                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-lighthouse.jpg&quot; alt=&quot;A screenshot of Gatsby&#39;s lighthouse score, showing a performance score of 72 out of 100&quot;&gt;
                 &lt;/noscript&gt;
             &lt;/a&gt;
             &lt;figcaption class=&quot;f6 mt2 i tc db&quot;&gt;I generated these scores from my laptop. Imagine what they might look like on a real phone.&lt;/figcaption&gt;
@@ -108,10 +108,10 @@ Cloud&lt;/a&gt;’s homepage similarly loads as expected, but actually wipes
 itself clean once that same error is thrown (presumably because the exception
 lies somewhere in the rendering step).&lt;/p&gt;
 &lt;figure class=&quot;mt4 mb4 mh0&quot;&gt;
-            &lt;a href=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.png&quot;&gt;
-                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.png&quot; alt=&quot;A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages.&quot;&gt;
+            &lt;a href=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.jpg&quot;&gt;
+                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.jpg&quot; alt=&quot;A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages.&quot;&gt;
                 &lt;noscript&gt;
-                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.png&quot; alt=&quot;A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages.&quot;&gt;
+                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-cloud-ie11.jpg&quot; alt=&quot;A screenshot of Internet Explorer 11 loading gatsbyjs.com, which is blank. The console is shown with error messages.&quot;&gt;
                 &lt;/noscript&gt;
             &lt;/a&gt;
             &lt;figcaption class=&quot;f6 mt2 i tc db&quot;&gt;Minimalism at its purest.&lt;/figcaption&gt;
@@ -121,10 +121,10 @@ into unexplained errors trying to render the page, meaning nothing showed up at
 all. For what it’s worth, it did appear to load the Gatsby Cloud homepage just
 fine.&lt;/p&gt;
 &lt;figure class=&quot;mt4 mb4 mh0&quot;&gt;
-            &lt;a href=&quot;https://salem.io/eleventy/gatsby-edge-16.png&quot;&gt;
-                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-edge-16.png&quot; alt=&quot;A screenshot of Edge 16 with an error message stating that the page has a problem loading.&quot;&gt;
+            &lt;a href=&quot;https://salem.io/eleventy/gatsby-edge-16.jpg&quot;&gt;
+                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-edge-16.jpg&quot; alt=&quot;A screenshot of Edge 16 with an error message stating that the page has a problem loading.&quot;&gt;
                 &lt;noscript&gt;
-                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-edge-16.png&quot; alt=&quot;A screenshot of Edge 16 with an error message stating that the page has a problem loading.&quot;&gt;
+                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-edge-16.jpg&quot; alt=&quot;A screenshot of Edge 16 with an error message stating that the page has a problem loading.&quot;&gt;
                 &lt;/noscript&gt;
             &lt;/a&gt;
             &lt;figcaption class=&quot;f6 mt2 i tc db&quot;&gt;To be fair, Edge 16 breaking isn&#39;t the most surprising thing ever.&lt;/figcaption&gt;
@@ -143,10 +143,10 @@ network connectivity. Gatsby frequently loads additional components as you
 browse around the site, and even as you scroll around an individual page. Here’s
 what my network tab looks like after scrolling to the bottom of the page:&lt;/p&gt;
 &lt;figure class=&quot;mt4 mb4 mh0&quot;&gt;
-            &lt;a href=&quot;https://salem.io/eleventy/gatsby-component-requests.png&quot;&gt;
-                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-component-requests.png&quot; alt=&quot;A screenshot of the network tab in Chrome&#39;s debugger on Gatsby&#39;s homepage, full of small fetch, json, and xhr requests.&quot;&gt;
+            &lt;a href=&quot;https://salem.io/eleventy/gatsby-component-requests.jpg&quot;&gt;
+                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-component-requests.jpg&quot; alt=&quot;A screenshot of the network tab in Chrome&#39;s debugger on Gatsby&#39;s homepage, full of small fetch, json, and xhr requests.&quot;&gt;
                 &lt;noscript&gt;
-                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-component-requests.png&quot; alt=&quot;A screenshot of the network tab in Chrome&#39;s debugger on Gatsby&#39;s homepage, full of small fetch, json, and xhr requests.&quot;&gt;
+                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/gatsby-component-requests.jpg&quot; alt=&quot;A screenshot of the network tab in Chrome&#39;s debugger on Gatsby&#39;s homepage, full of small fetch, json, and xhr requests.&quot;&gt;
                 &lt;/noscript&gt;
             &lt;/a&gt;
             &lt;figcaption class=&quot;f6 mt2 i tc db&quot;&gt;For bonus points, check out the transfer size and the request count.&lt;/figcaption&gt;
@@ -183,10 +183,10 @@ saves me the trouble of monitoring client-side errors.&lt;/p&gt;
 to the bottom and load all the asynchronous content), has 6kb of JavaScript, and
 has a beautiful Lighthouse score.&lt;/p&gt;
 &lt;figure class=&quot;mt4 mb4 mh0&quot;&gt;
-            &lt;a href=&quot;https://salem.io/eleventy/11ty-lighthouse.png&quot;&gt;
-                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/11ty-lighthouse.png&quot; alt=&quot;A screenshot of Eleventy&#39;s Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100&quot;&gt;
+            &lt;a href=&quot;https://salem.io/eleventy/11ty-lighthouse.jpg&quot;&gt;
+                &lt;img class=&quot;lazy img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/11ty-lighthouse.jpg&quot; alt=&quot;A screenshot of Eleventy&#39;s Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100&quot;&gt;
                 &lt;noscript&gt;
-                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/11ty-lighthouse.png&quot; alt=&quot;A screenshot of Eleventy&#39;s Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100&quot;&gt;
+                    &lt;img class=&quot;img ba bw1 b--black br1 w-100 h-auto&quot; src=&quot;https://salem.io/eleventy/11ty-lighthouse.jpg&quot; alt=&quot;A screenshot of Eleventy&#39;s Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100&quot;&gt;
                 &lt;/noscript&gt;
             &lt;/a&gt;
             &lt;figcaption class=&quot;f6 mt2 i tc db&quot;&gt;These scores make Dale Earnhardt Jr. look like drying paint.&lt;/figcaption&gt;

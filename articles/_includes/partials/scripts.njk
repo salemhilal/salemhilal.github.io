@@ -1,9 +1,9 @@
 <!-- I, a sinner, submit myself to JavaScript -->
 <script>
 // Lazy load images
-!function(e,t,s){if("loading"in HTMLImageElement.prototype){var n=document.querySelectorAll(".lazy-load"),a=n.length;if(a>0)for(var c=0;c<a;c++)n[c].src=n[c].dataset.src,"srcset"in n[c].dataset&&(n[c].srcset=n[c].dataset.srcset)}else{var r=document.createElement("script");r.async=!0,r.src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js",document.body.appendChild(r)}}()
+!function(e,t,s){if("loading"in HTMLImageElement.prototype){var n=document.querySelectorAll(".lazy"),a=n.length;if(a>0)for(var c=0;c<a;c++)n[c].src=n[c].dataset.src,"srcset"in n[c].dataset&&(n[c].srcset=n[c].dataset.srcset)}else{var r=document.createElement("script");r.async=!0,r.src="https://cdn.jsdelivr.net/npm/lazysizes@5/lazysizes.min.js",document.body.appendChild(r)}}()
 
-// GAE
+// https://github.com/jehna/ga-lite
 !function(e,t,n,i,s,a,c){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},a=t.createElement(i),c=t.getElementsByTagName(i)[0],a.async=!0,a.src="https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js",c.parentNode.insertBefore(a,c)}(window,document,"galite","script");
 galite('create', 'UA-3331012-7', 'auto');
 galite('send', 'pageview');

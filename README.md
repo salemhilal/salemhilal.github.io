@@ -19,4 +19,12 @@ yarn run build
 yarn run serve
 ```
 
+## notes to self
+
+To optimize my images, I run em through imagemagick:
+
+```sh
+for i in *.png ; do convert -strip -interlace Plane  -quality 85% "$i" "${i%.*}.jpg" ; done
+```
+
 [tachyons]: http://tachyons.io/
