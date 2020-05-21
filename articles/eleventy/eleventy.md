@@ -10,10 +10,7 @@ tags: post
 
 <!--
 #### TODO:
-
--   Optimize images (jpg > png)
 -   Prefetch links when you hover on them
--   Pull JS into its own file, optimize and bundle it, etc.
 -   Figure out a footer
 -->
 
