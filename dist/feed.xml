@@ -4,7 +4,7 @@
     <subtitle>Help I&#39;m stuck in this blog</subtitle>
     <link href="https://salem.io/feed.xml" rel="self"/>
     <link href="https://salem.io/"/>
-    <updated>2020-05-20T21:35:05.581-04:00</updated>
+    <updated>2020-05-20T23:53:48.484-04:00</updated>
     <id>https://salem.io/</id>
     <author>
         <name>Salem Hilal</name>
@@ -14,15 +14,13 @@
         <entry>
             <title>A static blog probably doesn&#39;t need React.</title>
             <link href="https://salem.io/eleventy/"/>
-            <updated>2020-05-20T21:35:05.581-04:00</updated>
+            <updated>2020-05-20T23:53:48.484-04:00</updated>
             <id>https://salem.io/eleventy/</id>
             <content type="html">&lt;!--
 #### TODO:
-
--   Optimize images (jpg &gt; png)
 -   Prefetch links when you hover on them
--   Pull JS into its own file, optimize and bundle it, etc.
 -   Figure out a footer
+-   Set SEO data from article metadata
 --&gt;
 &lt;h1&gt;A static blog probably doesn’t need React.&lt;/h1&gt;
 &lt;p class=&quot;f5 mb3 lh-copy banana-black&quot;&gt;I used to blog a whole lot. I started a Wordpress blog when I was in middle

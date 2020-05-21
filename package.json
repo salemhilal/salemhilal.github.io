@@ -7,7 +7,7 @@
     "license": "MIT",
     "scripts": {
         "compile": "eleventy",
-        "post-build": "yarn uncss dist/**/*.html -C dist/ -H dist/ -o dist/style.css",
+        "post-build": "yarn uncss dist/**/*.html dist/index.html -C dist/ -H dist/ -o dist/style.css",
         "build": "eleventy && yarn run post-build",
         "serve": "yarn run http-server dist/",
         "dev": "eleventy --serve"

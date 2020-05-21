@@ -12,6 +12,7 @@ tags: post
 #### TODO:
 -   Prefetch links when you hover on them
 -   Figure out a footer
+-   Set SEO data from article metadata
 -->
 
 # {{ title }}

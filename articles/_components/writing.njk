@@ -1,3 +1,7 @@
+---
+permalink: writing/index.html
+eleventyExcludeFromCollections: true
+---
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
 	<head>
@@ -23,31 +27,38 @@
 		<meta name="twitter:image" content="https://salem.io/img/thumb.png"/>
 		<meta name="twitter:image:alt" content="My name is Salem. I care about web performance, front-end infrastructure, and public transportation. I am a software engineer on Etsy's Web Platform team."/>
 
-    <script>document.documentElement.classList.remove("no-js");</script>
+		<script>
+			document.documentElement.classList.remove("no-js");
+		</script>
 
 		<link rel="stylesheet" href="/style.css" type="text/css" media="uhh" onload="this.media='all'"/>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
 
 	</head>
 
-	<body class=" bg-yellow fade-in">
+	<body
+		class=" bg-yellow fade-in">
 		<!--[if IE]>  
-				<p class="browserupgrade">
-				  You are using an <strong>outdated</strong> browser. Please
-				  <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-				  your experience and security.
-				</p>
-				                    <![endif]-->
+		        <p class="browserupgrade">
+		            You are using an <strong>outdated</strong> browser. Please
+		            <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+		            your experience and security.
+		        </p>
+		                            <![endif]-->
 		<div class="mw7 center pa3 pa4-ns">
-      {% include 'partials/menu.njk' %}
+			<div>
+				<a href="/" class="b mr3 black link underline hover-bg-black-90 hover-yellow">home</a>
+				<a href="javascript:alert('not yet!')" class="b mr3 black link underline hover-bg-black-90 hover-yellow">writing</a>
+				<a href="/feed.xml" class="b black link underline hover-bg-black-90 hover-yellow">rss</a>
+			</div>
 			<div class="mb4 mt5 mb5-ns mt6-ns">
-
-        <small>{{ page.date | formatDate }}</small>
-				{{ content | safe }}
-
-        <div class="f4 b mb4 mt4 tc">—</div>
-        {% include 'partials/scripts.njk' %}
+				{%- for post in collections.post %}
+                    <div>
+                        {{post.date | formatDate}} — <a href="{{post.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">{{post.data.title}}</a>
+                    </div>
+				{%- endfor %}
+				{% include 'partials/scripts.njk' %}
 			</body>
 		</html>
 	</body>
