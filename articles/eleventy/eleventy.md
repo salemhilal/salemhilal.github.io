@@ -20,9 +20,9 @@ tags: post
 I used to blog a whole lot. I started a Wordpress blog when I was in middle
 school and ran it well through college. I spent more time maintaining the server
 it ran on than I did actually writing anything. I liked tinkering, and I liked
-computers. Now that I am a god-fearing engineer, I honestly want to spend as
-little time as possible thinking about maintaining a website. I want to write
-ideas down, and then I want them to show up on the internet.
+computers. Now that I get paid to mess around with computers, I don't really
+want to spend all my free time thinking about maintaining a website. I want to
+write ideas down, and then I want them to show up on the internet.
 
 At the same time, I still have standards. I want a site that I'd be proud of. I
 want something that builds simply, performs well, and is easy to extend. I think
@@ -37,21 +37,19 @@ critiques][spa-fatigue] on whether or not client-side web applications are
 valuable in general, but I'm not here to talk about that. I'm here to argue that
 if your goal is to build a blog, and you want to use something like React to do
 it, you should think carefully about the costs that come with it. To illustrate
-my point, I'm going to compare Gatsby, a very exciting React-based site-building
-framework, with Eleventy, an incredibly boring one.
+my point, I'm going to compare [Gatsby][gatsby], a very exciting React-based
+site-building framework, with [Eleventy][11ty], an incredibly boring one.
 
 ## Why not Gatsby?
 
-If you ask Twitter for recommendations, someone will mention [Gatsby][gatsby].
-Gatsby is a static-site generator built on top of React. React makes it
-incredibly easy to develop rich applications or build out complex interactions.
-A blog doesn't necessarily feel like it fits either of those qualifications, but
-plenty of people have chosen Gatsby to run their blogs. As I mentioned, my goal
-is to be able to write some markdown and have it show up painlessly on people's
-screens. Gatsby is just as easy to use as any other static site generator, but
-taking a closer look at how it runs in the browser didn't convince me that it
-was a good fit. For the sake of this exploration, I picked apart the [Gatsby
-project homepage][gatsby].
+Gatsby is a static-site generator built on top of React. React, in turn, is a
+framework that makes it incredibly easy to develop rich applications and build
+out complex interactions. A blog doesn't necessarily feel like it fits either of
+those qualifications, but plenty of people have chosen Gatsby to run their
+blogs. While Gatsby is just as easy to use as any other static site generator, a
+close look at how it runs in the browser didn't convince me that it was the
+right choice for my blog. For the sake of this exploration, I picked apart the
+[Gatsby project homepage][gatsby].
 
 ### Performance
 
@@ -70,21 +68,23 @@ actually responded to that interaction.
 
 {% figure "/eleventy/gatsby-lighthouse.jpg" "I generated these scores from my laptop. Imagine what they might look like on a real phone." "A screenshot of Gatsby's lighthouse score, showing a performance score of 72 out of 100" %}
 
-Why does Gatsby score so poorly on these measurements? For one, Gatsby takes
-advantage of a React optimization called server-side rendering. Typically, React
-applications can't display anything until both the React library and all of your
-application code has been downloaded and run. Server-side rendering allows
-applications to work around this constraint by rendering the application into
-static HTML ahead of time. This HTML is served when the application is
-requested. Once the application is displayed in the browser, its JavaScript is
-downloaded and run, replacing the staticly-rendered site with a React-powered
-one. This allows scores like First Contentful Paint and First Meaningful Paint
-to be very low, as shown in the screenshot above. The tradeoff is that any
-interactivity implemented in React still won't work until any JavaScript it
-relies on has finished loading. This can take some time; React, as fast as it
-may be, is still not an insignificant library to run, and while it executes, the
-rest of the user experience might be slowed. The result is a page that feels
-slow or even frozen to users, particularly those on slower devices.
+Gatsby scores so poorly on these measurements because it has to do a lot of work
+as the page loads. Typically, React applications can't display anything until
+both the React library and all of the application's code have been downloaded
+and run. To compensate for this delay, Gatsby takes advantage of an optimization
+called server-side rendering. With server-side rendering, an application is
+rendered into HTML ahead of time on the server. This HTML is served up to the
+browser when the application is requested. Once the application is displayed in
+the browser, its JavaScript is downloaded and run, replacing the
+staticly-rendered site with a React-powered one. This allows scores like First
+Contentful Paint and First Meaningful Paint to be very low, as shown in the
+screenshot above.
+
+The tradeoff is that any interactivity implemented in React still won't work
+until the JavaScript it relies on has finished loading. This can take some time;
+React, as fast as it may be, is still not an insignificant library to run, and
+while it executes, the rest of the user experience might be slowed. The result
+is a page that can feel sluggish, particularly on slower devices.
 
 Ironically enough, almost all of the functionality of the Gatsby homepage
 remains if you disable JavaScript, and you save aroud a megabyte from the weight
@@ -96,7 +96,7 @@ what benefit that JavaScript is actually providing.
 ### Browser support
 
 [Gatsby's documentation][gatsby-support] claims that it supports whatever
-browsers React supports, which is currently "At least IE9". At the time of
+browsers React supports, which is currently "at least IE9". At the time of
 writing, Internet Explorer 11 actually renders Gatsby's homepage just fine, but
 throws an exception (`fetch is undefined`) in the process. [Gatsby
 Cloud][gatsby-cloud]'s homepage similarly loads as expected, but actually wipes
@@ -107,18 +107,18 @@ lies somewhere in the rendering step).
 
 Edge 16 doesn't even make it that far; when loading the Gatsby homepage, it ran
 into unexplained errors trying to render the page, meaning nothing showed up at
-all. For what it's worth, it did appear to load the Gatsby Cloud homepage just
-fine.
+all. For what it's worth, Edge 16 did appear to load the Gatsby Cloud homepage
+just fine.
 
 {% figure "/eleventy/gatsby-edge-16.jpg" "To be fair, Edge 16 breaking isn't the most surprising thing ever." "A screenshot of Edge 16 with an error message stating that the page has a problem loading." %}
 
-To be clear, I don't think IE11 or Edge 16 are particularly important browsers
-to support. Neither of them represent a ton of traffic, and neither of them are
-known for being reliable. At the same time, it's not hard to imagine a similar
-bug in an old version of Mobile Safari or Samsung Internet. These particular
-issues seem like bugs that I imagine will get fixed, but it's a good reminder
+To be clear, I don't think that IE11 or Edge 16 are particularly important
+browsers to support. Neither of them represent a ton of traffic, and neither of
+them are known for being reliable. At the same time, it's not hard to imagine a
+similar bug in an old version of Mobile Safari or Samsung Internet. The issues I
+ran into seem like bugs that I imagine will get fixed, but it's a good reminder
 that with a reliance on JavaScript comes a reliance on polyfills and a careful
-eye for browser support. Whatever value I'd get from a client-rendered blog
+eye for browser support. Whatever value I'd get from a browser-rendered blog
 should be worth the headache that browser support entails.
 
 ### Mobile considerations
@@ -131,19 +131,20 @@ what my network tab looks like after scrolling to the bottom of the page:
 {% figure "/eleventy/gatsby-component-requests.jpg" "For bonus points, check out the transfer size and the request count." "A screenshot of the network tab in Chrome's debugger on Gatsby's homepage, full of small fetch, json, and xhr requests." %}
 
 These requests continue as you browse around the rest of the site; navigating to
-"Docs" kicks off an additional 37 requests over the network, even with service
-worker support and the browser cache enabled. They are exceptionally small, but
-sporadic requests come with a cost: they [keep the antenna
+the "Docs" page kicks off an additional 37 requests over the network, even with
+service worker support and the browser cache enabled. They are exceptionally
+small, but sporadic requests come with a cost: they [keep the antenna
 active][mobile-battery] on mobile devices. In large applications, there's a ton
 of value in loading JavaScript as it's necessary; it keeps the loading
 experience light, it makes better use of the browser's cache, and it saves
 bandwidth throughout a user's visit. However, as with everything, there is a
 tradeoff. Network requests activate the mobile antenna, which in turn drains the
-battery. No one likes to have their battery drained. In large applications,
-there's a careful balance to be struck between loading content later and loading
-it eagerly, but that's a consideration that's probably not important for a
-personal blog. Unless I'm writing a literal novel, deferring the loading of my
-content is likely an over-optimization for my blog.
+battery. No one likes to have their battery drained.
+
+In large applications, there's a careful balance to be struck between loading
+content later and loading it eagerly, but that's a consideration that's probably
+not important for a personal blog. Unless I'm writing a literal novel, deferring
+the loading of my content is likely an over-optimization for my blog.
 
 ## Eleventy (11ty) is great.
 
@@ -164,16 +165,16 @@ my reliance on JavaScript is a sort of insurance against these surprises, and it
 saves me the trouble of monitoring client-side errors.
 
 For comparison's sake, the 11ty homepage loads around 80kb (567kb if you scroll
-to the bottom and load all the asynchronous content), has 6kb of JavaScript, and
-has a beautiful Lighthouse score.
+to the bottom and load all of the lazy-loaded images), has 6kb of JavaScript,
+and has a beautiful Lighthouse score.
 
 {% figure "/eleventy/11ty-lighthouse.jpg" "These scores make Dale Earnhardt Jr. look like drying paint." "A screenshot of Eleventy's Lighthouse score. Everything is perfect except for SEO, which scores 97 out of 100" %}
 
 ### It is really easy to extend.
 
-I'm currently using Eleventy to minify and concatenate all of my CSS. I'm also
-using a plugin to add syntax highlighting at build-time rather than at runtime,
-which saves me plenty of space. Here, check it out:
+You can do a lot with Eleventy. I'm currently using it to minify and concatenate
+all of my CSS. I'm also using a plugin to add syntax highlighting at build-time
+rather than at runtime, which saves me plenty of space. Here, check it out:
 
 ```js
 // This code snippet both shows off my syntax highlighting plugin and
@@ -184,11 +185,10 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-I also wanted to customize the HTML that the markdown engine spits out. I'm
-using [Tachyons][tachyons] to style this site, which uses specifically-named
-classes to style elements (like most CSS frameworks). I was able to add custom
-classes to the output HTML by adding a plugin to the underlying markdown
-library:
+I'm using [Tachyons][tachyons] to style this site, which uses specifically-named
+classes to style elements (like many CSS frameworks). I was able to add custom
+classes to the output HTML by adding a plugin directly to the underlying
+markdown library:
 
 ```js
 const md = require("markdown-it");
@@ -206,25 +206,27 @@ module.exports = function (eleventyConfig) {
 };
 ```
 
-I know there are going to be times where I want to add a bit of interactivity to
-a post, or when I'll want to add support for responsive images, and I'm not too
-worried about Eleventy somehow preventing me from doing any of that.
+I'm showing you these snippets because I think it shows how relatively
+straightforward it is to tweak Eleventy's behavior. I know there are going to be
+times where I want to add a bit of interactivity to a post, or when I'll want to
+add support for responsive images, and I'm not too worried about Eleventy
+somehow preventing me from doing any of that.
 
 ### It is written in JavaScript.
 
-Ok hear me out on this one. I'm comfortable enough with JavaScript to dig around
-a bit when things don't work. I don't think JavaScript is a particularly
-powerful or safe language, but it is one that I know fairly well. If I spent
-most of my time writing Ruby or Go, I'm sure Jekyll or Hugo would work just as
-well for me. If anything breaks when I'm trying to build my blog, I'm going to
-be the one who has to fix it. And besides, if I start to run into the
-limitations of the JavaScript language trying to build a static blog, I probably
-have bigger problems on my hands.
+Ok, hear me out on this one. I don't hate JavaScript. I'm comfortable enough
+with JavaScript to dig around a bit when things don't work. I don't think
+JavaScript is a particularly powerful or safe language, but it is one that I
+know fairly well. If I spent most of my time writing Ruby or Go, I'm sure Jekyll
+or Hugo would work just as well for me. If anything breaks when I'm trying to
+build my blog, I'm going to be the one who has to fix it. And besides, if I
+start to run into the limitations of the JavaScript language trying to build a
+static blog, I probably have bigger problems on my hands.
 
 ## Use the right tool for the job.
 
-If you want to play with a full fledged application that embodies the best that
-web development has to offer, Gatsby is a fantastic choice. Gatsby takes
+If you want to play with a full fledged application that embodies the best of
+what web development has to offer, Gatsby is a fantastic choice. Gatsby takes
 advantage of some bleeding-edge technologies and is clearly an impressive piece
 of engineering. If you want to put a blog on the internet, you're probably
 better off with something simpler. Adding JavaScript to the mix just increases
