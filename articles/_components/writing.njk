@@ -27,39 +27,25 @@ eleventyExcludeFromCollections: true
 		<meta name="twitter:image" content="https://salem.io/img/thumb.png"/>
 		<meta name="twitter:image:alt" content="My name is Salem. I care about web performance, front-end infrastructure, and public transportation. I am a software engineer on Etsy's Web Platform team."/>
 
-		<script>
-			document.documentElement.classList.remove("no-js");
-		</script>
-
-		<link rel="stylesheet" href="/style.css" type="text/css" media="uhh" onload="this.media='all'"/>
+		<script>document.documentElement.classList.remove("no-js");</script>
+		<link rel="stylesheet" href="/style.css" type="text/css" media="all"/>
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-
 	</head>
 
-	<body
-		class=" bg-yellow fade-in">
-		<!--[if IE]>  
-		        <p class="browserupgrade">
-		            You are using an <strong>outdated</strong> browser. Please
-		            <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-		            your experience and security.
-		        </p>
-		                            <![endif]-->
+	<body class=" bg-yellow fade-in">
 		<div class="mw7 center pa3 pa4-ns">
-			<div>
-				<a href="/" class="b mr3 black link underline hover-bg-black-90 hover-yellow">home</a>
-				<a href="javascript:alert('not yet!')" class="b mr3 black link underline hover-bg-black-90 hover-yellow">writing</a>
-				<a href="/feed.xml" class="b black link underline hover-bg-black-90 hover-yellow">rss</a>
-			</div>
+            {% include 'partials/browserupgrade.njk' %}
+            {% include 'partials/menu.njk' %}
 			<div class="mb4 mt5 mb5-ns mt6-ns">
+                <h1>Some writing I've done.</h1>
 				{%- for post in collections.post %}
                     <div>
                         {{post.date | formatDate}} — <a href="{{post.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">{{post.data.title}}</a>
                     </div>
 				{%- endfor %}
 				{% include 'partials/scripts.njk' %}
-			</body>
-		</html>
+            </div>
+        </div>
+        {% include 'partials/scripts.njk' %}
 	</body>
 </html>
