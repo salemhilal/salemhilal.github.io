@@ -55,12 +55,13 @@ const mdClassOptions = {
  * @param {string?} altText
  * @returns string
  */
-const figureShortcode = (image, caption, altText) => {
+const figureShortcode = (image, caption, altText, classes) => {
     const alt = altText ? altText : caption;
+    const classString = classes ? " " + classes : ""
     const captionMarkup = caption
         ? `<figcaption class="f6 mt2 i tc db">${caption}</figcaption>`
         : "";
-    return `<figure class="mt4 mb4 mh0">
+    return `<figure class="mt4 mb4 center${classString}">
             <a href="${image}">
                 <img class="lazy img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
                 <noscript>
