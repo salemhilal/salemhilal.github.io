@@ -1,5 +1,6 @@
 /** lazy load */
-.no-js .lazy {
+.no-js .lazyload {
+    display: none;
 }
 
 /** My utilities */
