@@ -1,9 +1,11 @@
 ---
-title: Squeezing geodata into an iOS app
+title: Getting New York's road data into an iOS app
 date: Last Modified
 description:
     I'm teaching myself Swift and I inadvertently picked a weirdly-shaped
     project — a map-based app using as few 3rd-party libraries as possible.
+    Getting New York's road data, block by block, turned out to be more
+    elaborate than I thought it would be.
 
 layout: layouts/article.njk
 tags: post
@@ -25,9 +27,9 @@ write Swift instead of screaming into the void. I missed writing product code
 and I missed writing a compiled language with a nice IDE and a type system. I
 also missed the speed and responsiveness that comes with native code that you
 only get in the browser if you are extremely careful. So, I decided to try and
-build an app in [Swift][swift] (using [SwiftUI][swiftui] where possible). This post is the first of
-a handful where I try to digest what I'm working on. Think of this more as a
-journal than any sort of tutorial.
+build an app in [Swift][swift] (using [SwiftUI][swiftui] where possible). This
+post is the first of a handful where I try to digest what I'm working on. Think
+of this more as a journal than any sort of tutorial.
 
 ## What are you making then?
 
@@ -73,8 +75,8 @@ people who maintain [OpenStreetMap][osm]).
 OpenStreetMap seemed like a good bet since it's data is free to use and is
 constantly being updated. The reality is that map data is really, really big,
 and getting at the data for just New York City was surprisingly gross.
-OpenStreetMap lets you [export][osm-export] regions of map data but exporting
-an area bigger than that a square mile or so ends up being too big a request. My
+OpenStreetMap lets you [export][osm-export] regions of map data but exporting an
+area bigger than that a square mile or so ends up being too big a request. My
 options were either to:
 
 -   Download a lot of smaller regions and stitch them together.

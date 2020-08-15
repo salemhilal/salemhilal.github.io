@@ -5,6 +5,7 @@
  */
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const rss = require("@11ty/eleventy-plugin-rss");
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const lazyImages = require("eleventy-plugin-lazyimages");
 const md = require("markdown-it");
 const mdClass = require("@toycode/markdown-it-class");
@@ -63,9 +64,9 @@ const figureShortcode = (image, caption, altText, classes) => {
         : "";
     return `<figure class="mt4 mb4 center${classString}">
             <a href="${image}">
-                <img class="lazy img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
+                <img class="lazy img border-box ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
                 <noscript>
-                    <img class="img ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
+                    <img class="img border-box ba bw1 b--black br1 w-100 h-auto" src="${image}" alt="${alt}"/>
                 </noscript>
             </a>
             ${captionMarkup}
@@ -78,6 +79,11 @@ module.exports = function (eleventyConfig) {
 
     // Export an rss feed
     eleventyConfig.addPlugin(rss);
+
+    // Export a sitemap
+    eleventyConfig.addPlugin(sitemap, {
+        sitemap: { hostname: "https://salem.io" }
+    })
 
     // Lazy load images
     eleventyConfig.addPlugin(lazyImages, {
@@ -122,6 +128,7 @@ module.exports = function (eleventyConfig) {
         dir: {
             input: "articles",
             output: "dist",
+            data: "_data",
             includes: "_includes",
         },
     };
