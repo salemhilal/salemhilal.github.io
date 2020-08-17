@@ -21,15 +21,15 @@ tags: post
 # {{ title }}
 
 I do a lot of work with web build systems and performance, but I got into
-writing software because I liked making products. With all the free time that
-the pandemic has brought, I've been spending my off-hours teaching myself to
-write Swift instead of screaming into the void. I missed writing product code
-and I missed writing a compiled language with a nice IDE and a type system. I
-also missed the speed and responsiveness that comes with native code that you
-only get in the browser if you are extremely careful. So, I decided to try and
-build an app in [Swift][swift] (using [SwiftUI][swiftui] where possible). This
-post is the first of a handful where I try to digest what I'm working on. Think
-of this more as a journal than any sort of tutorial.
+writing software because I like making products. With all the free time that the
+pandemic has brought, I've been spending my off-hours teaching myself to write
+Swift instead of screaming into the void. I missed writing product code and I
+missed writing a compiled language with a nice IDE and a type system. I also
+missed the speed and responsiveness that comes with native code that you only
+get in the browser if you are extremely careful. So, I decided to try and build
+an iOS app in [Swift][swift]. This post is the first of a handful where I try to
+digest what I'm working on. Think of this more as a journal than any sort of
+tutorial.
 
 ## What are you making then?
 
@@ -39,56 +39,62 @@ an app that shows me where I've been might also show me what I'm missing.
 
 {% figure "/swift/wow-a-prototype.jpg" "I could have picked a smaller phone." "A map of Brooklyn with a current location indicator. The roads around the indicator are highlighted in red." "mw6" %}
 
-From a technical perspective, I want to try and use SwiftUI to build my app and
-CoreData to persist its data, and I want to avoid 3rd party maps if possible. I
-figure this will force me to get experience with the core pieces of iOS
-development, which is most of why I'm writing this app.
+From a technical perspective, I want to try and use [SwiftUI][swiftui] to build
+my app and [Core Data][coredata] to persist its data. I also want to avoid 3rd
+party libraries if possible. If, like me, you're new to a lot of this, SwiftUI
+is Apple's new view framework, and Core Data is Apple's built-in data
+persistence layer. I won't go into a ton of detail on these libraries in this
+post, but a little context seems important. I figure these constraints will
+force me to get experience with the core pieces of iOS development, which is
+most of why I'm writing this app in the first place.
 
 ## Getting New York's road data
 
 To start, I need to think about how I want this app to work. Ideally, I want to
 break streets up into segments by block. I'm defining a block here as **the
 chunk of a street between any two adjacent intersections**. For example,
-Division Ave. between Berry St. and Bedford Ave. is a block, as is Berry St.
-between Division Ave. and S 1th St. To do this, I'll need a way to represent a
-road segment so that I can store metadata about it. I'll also need to know every
-possible road segment in New York so that I know what I have and have not
-visited. Getting at this data turns out to be not so straightforward.
+Division Avenue between Berry Street and Bedford Avenue is a block, as is Berry
+Street between Division Avenue and S 11th Street. To do this, I'll need a way to
+represent a road segment so that I can store metadata about it. I'll also need
+to know every possible road segment in New York so that I know what I have and
+have not visited. Getting at this data turns out to be not so straightforward.
 
 ### Apple Maps
 
-Road data seems weirdly tricky to get access to. When you want to render a map,
+I started by looking at what Apple would give me. When you want to render a map,
 Apple provides you with a view. They also provide you with a way to search for
-locations and a way to get a path between two locations.
+locations and a way to get directions between two locations.
 
-However, there's no way to get at this data directly. If I want the names of
-roads nearby or even the name of the road that's closest to my location, no
-dice. I needed to be able to get a catalog of road segments and identify the
-closest one from wherever I am. This data takes a while to collect, and anyone
-who's collected enough of it isn't willing to give it away (except the beautiful
-people who maintain [OpenStreetMap][osm]).
+However, there's no way to get at any of the data directly. If I want the names
+of roads nearby, or even the name of the road that's closest to my location, I'm
+out of luck. I needed to be able to get a catalog of road segments and identify
+the closest one from wherever I am. This data takes a while to collect, and
+anyone who's collected enough of it isn't willing to give it away, with the
+except the beautiful people who maintain OpenStreetMap.
 
 {% figure "/swift/osm-awesome.jpg" "Not the prettiest map tiles, but definitely the free-est." "a screenshot from openstreetmap.org centered on New York City" %}
 
 ### OpenStreetMap
 
-OpenStreetMap seemed like a good bet since it's data is free to use and is
-constantly being updated. The reality is that map data is really, really big,
-and getting at the data for just New York City was surprisingly gross.
-OpenStreetMap lets you [export][osm-export] regions of map data but exporting an
-area bigger than that a square mile or so ends up being too big a request. My
-options were either to:
+[OpenStreetMap][osm] is like Wikipedia for street data. It seemed like a natural
+place to look since its data is free to use and is constantly being updated. The
+reality is that map data is really, really big, and getting at the data for just
+New York City is gross. OpenStreetMap lets you [export][osm-export] regions of
+map data, but exporting an area bigger than that a square mile or so ends up
+being too big a request for them to process. My options were either to:
 
 -   Download a lot of smaller regions and stitch them together.
 -   Download [all of OpenStreetMap's data][planet] in one big ol' file and
     extract the data I needed.
 
-There are a few third parties that [will extract data][bbbike] from
-OpenStreetMap for popular regions like cities. I downloaded and played around
-with some of the data for New York, which ended up being extremely detailed. The
-data included road segments, neighborhood names, building shapes, and everything
-else you might imagine needs to be represented on a map. It was also about a gig
-and a half of JSON.
+Seeing as I didn't know much about how to use this data, neither option seemed
+especially great. On the bright side, there are a few third parties that [will
+extract data][bbbike] from OpenStreetMap for popular regions like cities. I
+ended up finding and downloading some of the data for New York City, which ended
+up being extremely detailed. The data included road segments, neighborhood
+names, building shapes, and everything else you might imagine needs to be
+represented on a map. It was also about a gig and a half of JSON, and while this
+level of detail is great, I only really needed data on roads.
 
 ### New York's Centerline Data
 
@@ -96,7 +102,9 @@ Around this time, I learned about New York City's Open Data initiative. They
 host a project called [The NYC Street Centerline][centerline], which holds data
 about New York's roadbeds. It's a fantastic start, but it's not as polished as
 OpenStreetMap's data. For example, take a look at this screenshot of NYC's data
-on top of Google Maps and note the discrepancies.
+on top of Google Maps. The blue lines are roads rendered from Centerline data.
+Note the discrepancies, especially around driveways, walking paths, and parking
+lots.
 
 {% figure "/swift/nyc-centerline.jpg" "[waves hands] 'You get the idea, there's roads.'" "a screenshot from NYC Centerline showing a number of small roads with missing data" %}
 
@@ -107,7 +115,7 @@ looks like, for example:
 {% figure "/swift/centerline-parks-oh-no.jpg" "If you get pulled over in Woodlawn Cemetery speeding, you can tell the officer that the City of New York does not recognize these as roads and so it's impossible to violate road safety laws on them." "a screenshot NYC Centerline on a park in the Bronx. Road data is missing, but the map shows that there are in fact streets." %}
 
 I'm betting OpenStreetMap's data is more accurate than NYC's here, but NYC's
-data is a great start. It's exclusively road data, so the actual filesize is
+data is a solid start. It's exclusively road data, so the actual file size is
 about ten times smaller than the OpenStreetMap data for New York. Plus, it comes
 with a bunch of fun attributes, like how wide the road is, the street numbers on
 each side, and even what priority the street gets when snow needs to be plowed.
@@ -273,6 +281,7 @@ me know if I did anything too surprising in the comments box below.
 
 [swift]: https://developer.apple.com/swift/
 [swiftui]: https://developer.apple.com/xcode/swiftui/
+[coredata]: https://developer.apple.com/documentation/coredata
 [osm]: https://www.openstreetmap.org/
 [osm-export]:
     https://www.openstreetmap.org/export#map=13/40.7192/-73.9564&layers=C
