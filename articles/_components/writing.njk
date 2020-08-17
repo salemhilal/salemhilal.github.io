@@ -38,8 +38,8 @@ eleventyExcludeFromCollections: true
             {% include 'partials/menu.njk' %}
 			<div class="mb4 mt5 mb5-ns mt6-ns">
                 <h1>Some writing I've done.</h1>
-				{%- for post in collections.post %}
-                    <div>
+				{%- for post in collections.post | reverse %}
+                    <div class="mb2">
                         {{post.date | formatDate}} — <a href="{{post.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">{{post.data.title}}</a>
                     </div>
 				{%- endfor %}

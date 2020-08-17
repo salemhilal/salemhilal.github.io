@@ -6,6 +6,7 @@
 const highlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const rss = require("@11ty/eleventy-plugin-rss");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
+const navigation = require("@11ty/eleventy-navigation");
 const lazyImages = require("eleventy-plugin-lazyimages");
 const md = require("markdown-it");
 const mdClass = require("@toycode/markdown-it-class");
@@ -20,7 +21,8 @@ const { join } = require("path");
  */
 
 // Make dates look like "April 5th, 1993"
-const dateFormat = "MMMM Do, YYYY";
+const DATE_FORMAT_YEAR = "MMMM Do, YYYY";
+const DATE_FORMAT_NO_YEAR = "MMMM Do";
 // Markdown-it options
 const mdOptions = {
     // Allow HTML inline in markdown
@@ -77,6 +79,9 @@ module.exports = function (eleventyConfig) {
     // md (to html) and images get copied into the destination folder
     eleventyConfig.setTemplateFormats(["md", "png", "jpg", "njk"]);
 
+    // Add navigation support
+    eleventyConfig.addPlugin(navigation);
+
     // Export an rss feed
     eleventyConfig.addPlugin(rss);
 
@@ -114,7 +119,12 @@ module.exports = function (eleventyConfig) {
 
     // Format our dates like "April 5th, 1993"
     eleventyConfig.addFilter("formatDate", function (date) {
-        return moment(date).format(dateFormat);
+        const parsedDate = moment(date);
+        // Ignore the year if the date is this year.
+        if (parsedDate.year() === moment().year()) {
+            return parsedDate.format(DATE_FORMAT_NO_YEAR)
+        }
+        return parsedDate.format(DATE_FORMAT_YEAR);
     });
 
     // Figure shortcodes for Nice Images™.

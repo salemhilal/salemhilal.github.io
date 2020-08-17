@@ -1,9 +1,10 @@
 ---
 permalink: style.css
+eleventyExcludeFromCollections: true
 ---
 {% set css %}
     {% include "css/main.css" %}
     {% include "css/tachyons.css" %}
     {% include "css/prism-nord.css" %}
 {% endset %}
-{{css | cssmin | safe}}
+{{ css | cssmin | safe }}
