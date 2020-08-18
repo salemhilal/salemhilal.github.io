@@ -15,7 +15,6 @@ tags: post
 #### TODO:
 -   Figure out a footer
 -   Commenting?
--   Set SEO data from article metadata
 -->
 
 # {{ title }}

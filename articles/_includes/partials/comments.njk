@@ -1,0 +1,31 @@
+<div class="mw7 center pa3 pa4-ns">
+    <div id="hyvor-talk-view">
+        <div class="lh-copy tc f6">
+            If everything goes according to plan, comments will end up here.<br />
+            If they don't (or if you have JavaScript disabled), get in touch instead: <span class="b">hi at salem.io</span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 1655; // DO NOT CHANGE THIS
+    var HYVOR_TALK_CONFIG = {
+        url: '{{ commentData.url | url }}',
+        id: '{{ commentData.id }}'
+    };
+</script>
+<script> 
+(function(){
+    var o = new IntersectionObserver(function(es) {
+        es.forEach(function(e) { 
+            if (!e.isIntersecting) { return }
+            o.disconnect();
+            var r = document.getElementsByTagName("base")[0] || document.getElementsByTagName("script")[0],
+                s = document.createElement("script");
+            s.src = "//talk.hyvor.com/web-api/embed";
+            s.async = true;
+            r.parentNode.insertBefore(s, r);
+        });
+    }, { threshold: .01 });
+    o.observe(document.querySelector('#hyvor-talk-view'));
+})()
+</script>

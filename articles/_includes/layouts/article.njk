@@ -44,6 +44,12 @@
                 <div class="f4 b mb4 mt4 tc">—</div>
             </div>
         </div>
+        {% set commentData = { 'url': page.url, 'id': page.fileSlug } %}
+        {% include 'partials/comments.njk' %}
         {% include 'partials/scripts.njk' %}
+
+        <div class="tc f7 mb3">
+            © Salem Hilal. Do you know the konami code? 
+        </div>
     </body>
 </html>
