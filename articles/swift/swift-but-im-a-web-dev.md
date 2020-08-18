@@ -9,13 +9,8 @@ description:
 
 layout: layouts/article.njk
 tags: post
+permalink: "writing/getting-nyc-road-data-into-a-swift-app/"
 ---
-
-<!--
-#### TODO:
--   Figure out a footer
--   Commenting?
--->
 
 # {{ title }}
 
