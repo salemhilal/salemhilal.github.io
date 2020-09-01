@@ -42,6 +42,31 @@ body {
     animation-name: fadeIn;
 }
 
+/* Make the scrollbar dark if we're gonna have a banana-colored website.
+    Thank you, @patriciarealini
+    https://twitter.com/patriciarealini/status/1300636410832068609
+    */
+html {
+    --scrollbarBG: gold;
+    --thumbBG: #1a1604;
+  }
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG);
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+  
+
 /* Thank you, https://codepen.io/nohoid/pen/kIfto */
 .rainbow {
     background: linear-gradient(
