@@ -13,7 +13,7 @@
         <meta name="theme-color" content="#ffd700"/>
 
         <meta name="author" content="Salem Hilal"/>
-        <meta name="og:title" content="Salem.io — {{ title }}"/>
+        <meta name="og:title" content="{{ title }}"/>
         <meta name="og:url" content="{{ globals.host }}{{ page.url }}"/>
         <meta name="og:type" content="article"/>
         <meta name="og:description" content="{{ description }}"/>
@@ -23,10 +23,10 @@
 
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:site" content="@technoheads"/>
-        <meta name="twitter:title" content="My name is Salem."/>
-        <meta name="twitter:description" content="This is my website."/>
-        <meta name="twitter:image" content="{{ globals.host }}/img/thumb.png"/>
-        <meta name="twitter:image:alt" content="My name is Salem. I care about web performance, front-end infrastructure, and public transportation. I am a software engineer on Etsy's Web Platform team."/>
+        <meta name="twitter:title" content="{{ title }} "/>
+        <meta name="twitter:description" content="{{ description }}"/>
+        <meta name="twitter:image" content="{{ globals.host }}{{ featuredImg }}"/>
+        <meta name="twitter:image:alt" content="{{ featuredImgAlt }}"/>
 
         <script>document.documentElement.classList.remove("no-js");</script>
         <link rel="stylesheet" href="/style.css" type="text/css" media="all"/>

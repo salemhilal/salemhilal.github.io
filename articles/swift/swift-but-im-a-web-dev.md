@@ -9,6 +9,8 @@ description:
 
 layout: layouts/article.njk
 tags: post
+featuredImg: /swift/wow-a-prototype.jpg
+featuredImgAlt: "A prototype of an iPhone app. It is entirely a map with the user's location centered on the screen. A grid of roads around a user are highlighted in red."
 permalink: "writing/getting-nyc-road-data-into-a-swift-app/"
 ---
 
