@@ -1,5 +1,7 @@
 # salem.io: a humble site all about me
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0b31f4ad-51e7-4c3d-adff-b76edf99c9f5/deploy-status)](https://app.netlify.com/sites/salemhilal/deploys)
+
 The site is just hand-coded HTML until it gets more complex, with
 [Tachyons][tachyons] for styling.
 
