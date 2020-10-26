@@ -33,7 +33,7 @@ My goal is to make an app that will show me where I've been in New York on a
 block-by-block basis. New York is big and I've only lived here for 5 years, so
 an app that shows me where I've been might also show me what I'm missing.
 
-{% figure "/swift/wow-a-prototype.jpg" "I could have picked a smaller phone." "A map of Brooklyn with a current location indicator. The roads around the indicator are highlighted in red." "mw6" %}
+{% figure "/nyc-road-data-in-swift/wow-a-prototype.jpg" "I could have picked a smaller phone." "A map of Brooklyn with a current location indicator. The roads around the indicator are highlighted in red." "mw6" %}
 
 From a technical perspective, I want to try and use [SwiftUI][swiftui] to build
 my app and [Core Data][coredata] to persist its data. I also want to avoid 3rd
@@ -68,7 +68,7 @@ the closest one from wherever I am. This data takes a while to collect, and
 anyone who's collected enough of it isn't willing to give it away, with the
 except the beautiful people who maintain OpenStreetMap.
 
-{% figure "/swift/osm-awesome.jpg" "Not the prettiest map tiles, but definitely the free-est." "a screenshot from openstreetmap.org centered on New York City" %}
+{% figure "/nyc-road-data-in-swift/osm-awesome.jpg" "Not the prettiest map tiles, but definitely the free-est." "a screenshot from openstreetmap.org centered on New York City" %}
 
 ### OpenStreetMap
 
@@ -102,13 +102,13 @@ on top of Google Maps. The blue lines are roads rendered from Centerline data.
 Note the discrepancies, especially around driveways, walking paths, and parking
 lots.
 
-{% figure "/swift/nyc-centerline.jpg" "[waves hands] 'You get the idea, there's roads.'" "a screenshot from NYC Centerline showing a number of small roads with missing data" %}
+{% figure "/nyc-road-data-in-swift/nyc-centerline.jpg" "[waves hands] 'You get the idea, there's roads.'" "a screenshot from NYC Centerline showing a number of small roads with missing data" %}
 
 It also appears to be missing a lot of data about roads through some parks and
 cemeteries, which would be nice to know about. Here's what Woodlawn Cemetery
 looks like, for example:
 
-{% figure "/swift/centerline-parks-oh-no.jpg" "If you get pulled over in Woodlawn Cemetery speeding, you can tell the officer that the City of New York does not recognize these as roads and so it's impossible to violate road safety laws on them." "a screenshot NYC Centerline on a park in the Bronx. Road data is missing, but the map shows that there are in fact streets." %}
+{% figure "/nyc-road-data-in-swift/centerline-parks-oh-no.jpg" "If you get pulled over in Woodlawn Cemetery speeding, you can tell the officer that the City of New York does not recognize these as roads and so it's impossible to violate road safety laws on them." "a screenshot NYC Centerline on a park in the Bronx. Road data is missing, but the map shows that there are in fact streets." %}
 
 I'm betting OpenStreetMap's data is more accurate than NYC's here, but NYC's
 data is a solid start. It's exclusively road data, so the actual file size is
@@ -252,14 +252,14 @@ help explore all of this data, I ended up using an app called
 [Dadroit][dadroit], a JSON viewer specifically made for viewing large files
 quickly.
 
-{% figure "/swift/dadroit.jpg" "Once again: not pretty, definitely useful." "a screenshot of the Dadroit app showing a segment of road data." "mw6" %}
+{% figure "/nyc-road-data-in-swift/dadroit.jpg" "Once again: not pretty, definitely useful." "a screenshot of the Dadroit app showing a segment of road data." "mw6" %}
 
 Using Dadroit gave me enough context on the shape of the data to be able to
 munch through it in a simple Swift app. The parsing itself took a while, but I
 got far enough into the data to be able to highlight a bunch of random roads
 from it.
 
-{% figure "/swift/random-roads.jpg" "This was so much harder than it looks." "A screenshot from the iOS simulator showing a map of New York with a bunch of random, sparse road segments highlighted." "mw6" %}
+{% figure "/nyc-road-data-in-swift/random-roads.jpg" "This was so much harder than it looks." "A screenshot from the iOS simulator showing a map of New York with a bunch of random, sparse road segments highlighted." "mw6" %}
 
 ## What did we learn, Salem?
 
