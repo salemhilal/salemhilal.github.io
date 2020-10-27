@@ -1,6 +1,6 @@
 ---
 title: Getting New York's road data into an iOS app
-date: Last Modified
+date: 2020-09-01T18:00
 description:
     I'm teaching myself Swift and I inadvertently picked a weirdly-shaped
     project — a map-based app using as few 3rd-party libraries as possible.
