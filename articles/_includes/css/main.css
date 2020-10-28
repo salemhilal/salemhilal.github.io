@@ -12,6 +12,10 @@ body {
     color: #1a1604;
 }
 
+.bg-banana-black {
+    background-color: #1a1604;
+}
+
 .border-salem {
     border-bottom: 5px solid black;
     border-right: 5px solid black;
@@ -19,6 +23,16 @@ body {
 
 .entry-salem {
     position: relative;
+}
+
+/* I don't like styling code blocks like this, but there's a bug in the 
+   code I use to add classes to markdown's output: 
+   https://github.com/HiroshiOkada/markdown-it-class/pull/3 */
+code {
+    background: #171a20;
+    border-radius: 2px;
+    color: white;
+    padding: 4px 2px 3px;
 }
 
 .fade-in {
@@ -56,6 +70,8 @@ html {
   body {
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG);
+    -webkit-scrollbar-width: thin;
+    -webkit-scrollbar-color: var(--thumbBG);
   }
   body::-webkit-scrollbar-track {
     background: var(--scrollbarBG);

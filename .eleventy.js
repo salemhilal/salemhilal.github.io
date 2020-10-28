@@ -39,6 +39,7 @@ const mdClassOptions = {
     h2: "mt5",
     a: "black link underline hover-bg-black-90 hover-yellow",
     img: "lazy-load",
+    code: ["bg-banana-black", "white", "br2"],
 };
 
 // Style tags with classes
