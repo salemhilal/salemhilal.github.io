@@ -37,6 +37,7 @@ const mdClassOptions = {
     p: "f5 mb3 lh-copy banana-black",
     ul: "f5 mb4 lh-copy o-90",
     h2: "mt5",
+    li: "mb2",
     a: "black link underline hover-bg-black-90 hover-yellow",
     img: "lazy-load",
     code: ["bg-banana-black", "white", "br2"],

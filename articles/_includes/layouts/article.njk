@@ -28,12 +28,13 @@
         <meta name="twitter:image" content="{{ globals.host }}{{ featuredImg }}"/>
         <meta name="twitter:image:alt" content="{{ featuredImgAlt }}"/>
 
-        <script>document.documentElement.classList.remove("no-js");</script>
+        <script>document.documentElement.classList.remove("no-js");window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")</script>
         <link rel="stylesheet" href="/style.css" type="text/css" media="all"/>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     </head>
 
-	<body class="bg-yellow fade-in">
+	<body class="bg-yellow fade-in black">
+
         <div class="mw7 center pa3 pa4-ns">
             {% include 'partials/browserupgrade.njk' %}
             {% include 'partials/menu.njk' %}

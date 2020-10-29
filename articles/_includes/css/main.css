@@ -6,6 +6,7 @@
 /** My utilities */
 body {
     font-family: "IBM Plex Sans", sans-serif;
+    transition: background-color 0.5s ease;
 }
 
 .banana-black {
@@ -28,11 +29,11 @@ body {
 /* I don't like styling code blocks like this, but there's a bug in the 
    code I use to add classes to markdown's output: 
    https://github.com/HiroshiOkada/markdown-it-class/pull/3 */
-code {
-    background: #171a20;
+:not(pre) > code {
+    background: #1a1604;
     border-radius: 2px;
     color: white;
-    padding: 4px 2px 3px;
+    padding: 4px 2px 2px;
 }
 
 .fade-in {
@@ -63,25 +64,26 @@ code {
 html {
     --scrollbarBG: gold;
     --thumbBG: #1a1604;
-  }
-  body::-webkit-scrollbar {
+    --scrollbarDarkBG: #1a1604;
+    --thumbDarkBG: gold;
+}
+body::-webkit-scrollbar {
     width: 11px;
-  }
-  body {
+}
+body {
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG);
     -webkit-scrollbar-width: thin;
     -webkit-scrollbar-color: var(--thumbBG);
-  }
-  body::-webkit-scrollbar-track {
+}
+body::-webkit-scrollbar-track {
     background: var(--scrollbarBG);
-  }
-  body::-webkit-scrollbar-thumb {
-    background-color: var(--thumbBG) ;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
     border-radius: 6px;
     border: 3px solid var(--scrollbarBG);
-  }
-  
+}
 
 /* Thank you, https://codepen.io/nohoid/pen/kIfto */
 .rainbow {
@@ -147,4 +149,89 @@ html {
     100% {
         background-position: 0% 82%;
     }
+}
+
+
+/** DARK MODE */
+
+.dark .bg-yellow, .dark.bg-yellow {
+    background-color: #1a1604;
+}
+
+.dark .black, .dark.black {
+    color: #f1f2f6;
+}
+
+/* We're swapping banana black for this off-white that I kinda like. */
+.dark .banana-black {
+    color: #f1f2f6;
+}
+
+/* Code should still be dark, so we need to delineate it from its surroundings */
+.dark pre {
+    border: 1px solid #f1f2f6;
+}
+
+/* This is the "Salem" in "my name is Salem". */
+.dark .yellow.bg-black-90 {
+    background-color: #ffe659;
+    color: #1a1604;
+    border-radius: 2px; 
+}
+
+/* And this is that border thing */
+.dark .border-salem {
+    border-bottom: 5px solid #ffe659;
+    border-right: 5px solid #ffe659;
+}
+
+/* Dark links need to be our pop color. */
+.dark .link {
+    color: #ffe659;
+}
+
+/* In dark backgrounds, thinner fonts are clearer */
+.dark .b {
+    font-weight: normal;
+}
+
+/* Make our code backgrounds be banana black */
+.dark :not(pre) > code[class*="language-"],
+.dark pre[class*="language-"] {
+    background: #1a1604;
+}
+
+/* Make inline codeblocks stand out */
+.dark :not(pre) > code {
+    background-color: #3B3B52;
+}
+
+/* Dull images a little */
+.dark img {
+    filter: brightness(0.8) contrast(1.2);
+}
+
+/* Make links visible */
+.dark a.hover-bg-black-90:hover {
+    background-color: #ffe659;
+    color: #1a1604;
+    border-radius: 2px;
+}
+
+.dark::-webkit-scrollbar {
+    width: 11px;
+}
+.dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbDarkBG);
+    -webkit-scrollbar-width: thin;
+    -webkit-scrollbar-color: var(--thumbDarkBG);
+}
+.dark::-webkit-scrollbar-track {
+    background: var(--scrollbarDarkBG);
+}
+.dark::-webkit-scrollbar-thumb {
+    background-color: var(--thumbDarkBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarDarkBG);
 }
