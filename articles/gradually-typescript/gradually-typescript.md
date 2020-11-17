@@ -1,6 +1,6 @@
 ---
 title: "Gradually TypeScript"
-date: Last Modified
+date: 2020-11-15T17:00
 description:
     Lots of people migrate their projects to TypeScript in one great lurch
     forward. If you don't have that luxury, you're like me, and if you're like

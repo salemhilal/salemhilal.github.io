@@ -2,7 +2,7 @@
 title:
     "Gradually TypeScript: Adding types to React components without removing
     their propTypes."
-date: Last Modified
+date: 2020-11-16T18:00
 description:
     PropTypes.InferProps is a great tool for getting TypeScript to agree with
     your existing PropTypes. However, it can lead to headaches.

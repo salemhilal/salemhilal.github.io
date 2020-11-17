@@ -1,6 +1,6 @@
 ---
 title: "Gradually TypeScript: An argument for migrating slowly."
-date: Last Modified
+date: 2020-11-15T18:00
 description:
     A lot of very smart people have had success migrating to TypeScript quickly.
     I have a few reasons why that's probably not the right move for me, yet.

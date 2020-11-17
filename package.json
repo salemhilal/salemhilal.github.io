@@ -8,8 +8,9 @@
     "scripts": {
         "compile": "eleventy",
         "post-build": "yarn uncss -u .uncssrc -o dist/style.css dist/**/*.html dist/**/**/*.html dist/index.html",
-        "build": "eleventy && yarn run post-build",
+        "build": "yarn compile && yarn run post-build",
         "serve": "yarn run http-server dist/",
+        "staging": "yarn clean && yarn build && yarn serve",
         "dev": "eleventy --serve",
         "clean": "rm -rf dist"
     },
