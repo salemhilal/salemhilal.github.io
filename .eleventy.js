@@ -10,6 +10,7 @@ const navigation = require("@11ty/eleventy-navigation");
 const lazyImages = require("eleventy-plugin-lazyimages");
 const md = require("markdown-it");
 const mdClass = require("@toycode/markdown-it-class");
+const mdAnchor = require("markdown-it-anchor");
 const moment = require("moment");
 const CleanCSS = require("clean-css");
 const { join } = require("path");
@@ -42,6 +43,19 @@ const mdClassOptions = {
     img: "lazy-load",
     code: ["bg-banana-black", "white", "br2"],
 };
+// Add anchors to headers
+const mdAnchorOptions = {
+    // Add links next to titles
+    permalink: true,
+    // But put the link before the title
+    permalinkBefore: true,
+    // And only do this for titles of level h2 and lower
+    level: 2,
+    // And put these classes on the link
+    permalinkClass: "f4 black link underline hover-bg-black-90 hover-yellow",
+    // And use this symbol.
+    permalinkSymbol: "#",
+};
 
 // Style tags with classes
 
@@ -62,7 +76,7 @@ const mdClassOptions = {
  */
 const figureShortcode = (image, caption, altText, classes) => {
     const alt = altText ? altText : caption;
-    const classString = classes ? " " + classes : ""
+    const classString = classes ? " " + classes : "";
     const captionMarkup = caption
         ? `<figcaption class="f6 mt2 i tc db">${caption}</figcaption>`
         : "";
@@ -89,8 +103,8 @@ module.exports = function (eleventyConfig) {
 
     // Export a sitemap
     eleventyConfig.addPlugin(sitemap, {
-        sitemap: { hostname: "https://salem.io" }
-    })
+        sitemap: { hostname: "https://salem.io" },
+    });
 
     // Lazy load images
     eleventyConfig.addPlugin(lazyImages, {
@@ -124,7 +138,7 @@ module.exports = function (eleventyConfig) {
         const parsedDate = moment(date);
         // Ignore the year if the date is this year.
         if (parsedDate.year() === moment().year()) {
-            return parsedDate.format(DATE_FORMAT_NO_YEAR)
+            return parsedDate.format(DATE_FORMAT_NO_YEAR);
         }
         return parsedDate.format(DATE_FORMAT_YEAR);
     });
@@ -133,7 +147,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode("figure", figureShortcode);
 
     // Let us set classes on the elements that the markdown generator
-    eleventyConfig.setLibrary("md", md(mdOptions).use(mdClass, mdClassOptions));
+    eleventyConfig.setLibrary(
+        "md",
+        md(mdOptions)
+            .use(mdClass, mdClassOptions)
+            .use(mdAnchor, mdAnchorOptions)
+    );
 
     return {
         passthroughFileCopy: true,

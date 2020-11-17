@@ -1,3 +1,11 @@
+/** Tachyons "large" media query */
+@media screen and (min-width: 60em) {
+    /** Make everything a little bigger on tablets and desktops. */
+    html {
+        font-size: 20px;
+    }
+}
+
 /** lazy load */
 .no-js .lazyload {
     display: none;
@@ -151,14 +159,15 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-
 /** DARK MODE */
 
-.dark .bg-yellow, .dark.bg-yellow {
+.dark .bg-yellow,
+.dark.bg-yellow {
     background-color: #1a1604;
 }
 
-.dark .black, .dark.black {
+.dark .black,
+.dark.black {
     color: #f1f2f6;
 }
 
@@ -176,7 +185,7 @@ body::-webkit-scrollbar-thumb {
 .dark .yellow.bg-black-90 {
     background-color: #ffe659;
     color: #1a1604;
-    border-radius: 2px; 
+    border-radius: 2px;
 }
 
 /* And this is that border thing */
@@ -203,7 +212,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Make inline codeblocks stand out */
 .dark :not(pre) > code {
-    background-color: #3B3B52;
+    background-color: #3b3b52;
 }
 
 /* Dull images a little */
