@@ -20,21 +20,23 @@ permalink: "writing/gradually-typescript/dont-use-proptypes-inferprops/"
 _This is part of a series on gradual TypeScript migration. You can find a list
 of all the posts in the series [here](/writing/gradually-typescript/)._
 
-**In short:** As you migrate your codebase to TypeScript, it helps to make both
-PropTypes and TypeScript types available for your React components.
+**In short:** As you migrate your codebase to TypeScript, it might make sense to
+have both PropTypes and TypeScript types available for your React components.
 [This section](#the-actual-solution-we-went-with.) gives an example of the best
 pattern I've found for doing this so far.
 
-## Setting the stage.
+---
 
 Migrating to TypeScript is a lot of fun because it means I get to run in to all
 the weird edge cases I could ever want. It isn't always the edge cases that turn
-out to be fun; some things that seem pretty straightforward onpaper have turned
-out to be pretty weird as well. For example, using PropTypes _and_ TypeScript
-types simultaneously can very much be a bad time.
+out to be fun though; some things that seem pretty straightforward onpaper have
+turned out to be pretty weird as well. For example, using PropTypes _and_
+TypeScript types simultaneously can very much be a bad time.
 
-It might help to show why you would want both TypeScript types and PropTypes at
-the same time.
+Before I go into why this is the case, it might help to explain why you would
+want both TypeScript types and PropTypes at the same time in the first place.
+
+## Setting the stage.
 
 When you think about writing React components in TypeScript, one of the most
 obvious wins is the ability to stop thinking about PropTypes. As a quick
@@ -69,8 +71,9 @@ If I do something like `<Howdy target="_blank" />`, React would spit out:
 <a href="https://kwi.li/coo'/" target="_blank">Howdy</a>
 ```
 
-And of course, if I tried to do something heinous like `<Howdy target={2} />`,
-I'll get an error like this in my browser's console at runtime:
+And of course, if I tried to do something disastrous like
+`<Howdy target={2} />`, I'll get an error like this in my browser's console at
+runtime:
 
 ```html
 Warning: Failed prop type: Invalid prop `target` of type `number` supplied to
@@ -78,8 +81,8 @@ Warning: Failed prop type: Invalid prop `target` of type `number` supplied to
 ```
 
 Love to see that. However, it would be _great_ if we could get these warnings
-well before we run our code, wouldn't it? That's pretty much exactly what
-TypeScript is for. Here's that same component in TypeScript:
+well before they make their way to the browser, wouldn't it? That's pretty much
+exactly what TypeScript is for. Here's that same component in TypeScript:
 
 ```tsx
 function Howdy(props: { target?: string }) {

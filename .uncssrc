@@ -2,7 +2,9 @@
     "ignore": [
         "/\\.token.*/",
         "/\\.rainbow.*/",
-        "/\\.dark.*/"
+        "/\\.dark.*/",
+        "/^hr$/",
+        "/\\.*code\\.*/"
     ],
     "csspath": "dist/",
     "htmlroot": "dist/"

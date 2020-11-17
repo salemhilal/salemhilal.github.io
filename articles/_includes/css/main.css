@@ -44,6 +44,12 @@ body {
     padding: 4px 2px 2px;
 }
 
+/* Same with this -_- */
+hr {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+
 .fade-in {
     -webkit-animation: fad1-in 0.5s ease;
     -z-animation: fade-in 0.5s ease;
