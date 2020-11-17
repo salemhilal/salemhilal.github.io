@@ -4,8 +4,11 @@ title:
     their propTypes."
 date: 2020-11-16T18:00
 description:
-    PropTypes.InferProps is a great tool for getting TypeScript to agree with
-    your existing PropTypes. However, it can lead to headaches.
+    When migrating React components to TypeScript, it makes sense to leave
+    PropTypes in place. They make sure your TypeScript-ified React components
+    are still being used as expected in the non-TypeScript parts of your
+    codebase. However, having both PropTypes and TypeScript types turns out to
+    be surprisingly unintuitive.
 layout: layouts/article.njk
 tags:
     - post
@@ -146,7 +149,7 @@ const propTypes = {
 };
 
 type Props = PropTypes.InferProps<typeof propTypes>;
-// type Props = { target: string | null | undefined }
+// type Props ≈ { target: string | null | undefined }
 ```
 
 Brilliant! All I have to do now is just insert `PropTypes.InferProps` into all
