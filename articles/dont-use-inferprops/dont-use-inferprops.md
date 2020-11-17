@@ -159,14 +159,14 @@ type Props = PropTypes.InferProps<typeof propTypes>;
 function Howdy(props: Props) {
     return (
         <a href="https://kwi.li/coo'/" target={props.target}>
+            {/*                                ~~~~~~~~~~~~
+             * ERROR:
+             * Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+             * Type 'null' is not assignable to type 'string | undefined'.
+             */}
             Howdy
         </a>
     );
-    /**                                           ~~~~~~~~~~~~
-     * ERROR:
-     * Type 'string | null | undefined' is not assignable to type 'string | undefined'.
-     * Type 'null' is not assignable to type 'string | undefined'.
-     */
 }
 
 Howdy.propTypes = propTypes;
@@ -266,10 +266,10 @@ type Props = PropTypes.InferProps<typeof propTypes>;
 function Howdy(props: Props) {
     return (
         <a href="https://kwi.li/coo'/" target={props.target!}>
+            {/*                  This thing riiiiight here ^ */}
             Howdy
         </a>
     );
-    //                              This thing riiiiight here ^
 }
 
 Howdy.propTypes = propTypes;

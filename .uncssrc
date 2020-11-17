@@ -1,0 +1,9 @@
+{
+    "ignore": [
+        "/\\.token.*/",
+        "/\\.rainbow.*/",
+        "/\\.dark.*/"
+    ],
+    "csspath": "dist/",
+    "htmlroot": "dist/"
+}
