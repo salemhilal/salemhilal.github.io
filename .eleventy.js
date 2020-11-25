@@ -24,6 +24,8 @@ const { join } = require("path");
 // Make dates look like "April 5th, 1993"
 const DATE_FORMAT_YEAR = "MMMM Do, YYYY";
 const DATE_FORMAT_NO_YEAR = "MMMM Do";
+const DATE_FORMAT_JUST_MONTH = "MMMM";
+const DATE_FORMAT_MONTH_AND_YEAR = "MMMM, YYYY";
 // Markdown-it options
 const mdOptions = {
     // Allow HTML inline in markdown
@@ -141,6 +143,24 @@ module.exports = function (eleventyConfig) {
             return parsedDate.format(DATE_FORMAT_NO_YEAR);
         }
         return parsedDate.format(DATE_FORMAT_YEAR);
+    });
+
+    eleventyConfig.addFilter("getMonthHeader", function (post, oldPost) {
+        const postDate = moment(post.date);
+        const format =
+            postDate.year() == moment().year()
+                ? DATE_FORMAT_MONTH_AND_YEAR
+                : DATE_FORMAT_JUST_MONTH;
+
+        if (!oldPost) {
+            return postDate.format(format);
+        }
+        const oldPostDate = moment(oldPost.date);
+
+        if (postDate.month() !== oldPostDate.month()) {
+            return postDate.format(format);
+        }
+        return "";
     });
 
     // Figure shortcodes for Nice Images™.

@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <html class="no-js" lang="en-US">
 	<head>
 		<meta charset="utf-8"/>
-		<title>{{ title }}</title>
+		<title>salem.io — Writing</title>
 		<meta name="description" content="Here are all the things I have written."/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="theme-color" content="#ffd700"/>
@@ -39,17 +39,31 @@ eleventyExcludeFromCollections: true
 			<div class="mb4 mt5 mb5-ns mt6-ns">
                 <h1>Some writing I've done.</h1>
 				{%- for post in collections.post | reverse %}
-                    <div class="mb2">
+					{% set monthHeader = post | getMonthHeader(collections.post[loop.revindex]) %}
+					{% if monthHeader %}
+						{% if not loop.first %}
+						</ul>
+						{% endif %}
+
+						<h3>{{monthHeader}}</h3>
+						<ul>
+					{% endif %}
+
+                    <li class="mb2">
 						{% if post.data.eleventyNavigation %} 
-							{{post.date | formatDate}} — <a href="{{ post.data.eleventyNavigation.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">
+							<a href="{{ post.data.eleventyNavigation.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">
 								{{post.data.title}}
 							</a>&nbsp;&#x29c9;
 						{% else %}
-							{{post.date | formatDate}} — <a href="{{ post.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">
+							<a href="{{ post.url | url}}" class="black link underline hover-bg-black-90 hover-yellow">
 								{{post.data.title}}
 							</a>
 						{% endif %}
-                    </div>
+                    </li>
+					{% if loop.last %}
+						</ul>
+					{% endif %}
+					
 				{%- endfor %}
 				{% include 'partials/scripts.njk' %}
             </div>
