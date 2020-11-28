@@ -54,7 +54,8 @@ const mdAnchorOptions = {
     // And only do this for titles of level h2 and lower
     level: 2,
     // And put these classes on the link
-    permalinkClass: "f4 black link underline hover-bg-black-90 hover-yellow",
+    permalinkClass:
+        "f4 black link hover-bg-black-90 hover-yellow fl relative mr1 top-2px",
     // And use this symbol.
     permalinkSymbol: "#",
 };

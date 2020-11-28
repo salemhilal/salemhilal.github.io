@@ -34,6 +34,10 @@ body {
     position: relative;
 }
 
+.top-2px {
+    top: 2px;
+}
+
 /* I don't like styling code blocks like this, but there's a bug in the 
    code I use to add classes to markdown's output: 
    https://github.com/HiroshiOkada/markdown-it-class/pull/3 */
@@ -199,11 +203,6 @@ body::-webkit-scrollbar-thumb {
 .dark .border-salem {
     border-bottom: 5px solid #ffe659;
     border-right: 5px solid #ffe659;
-}
-
-/* Dark links need to be our pop color. */
-.dark .link {
-    color: #ffe659;
 }
 
 /* In dark backgrounds, thinner fonts are clearer */
