@@ -211,10 +211,10 @@ body::-webkit-scrollbar-thumb {
     font-weight: normal;
 }
 
-/* Make our code backgrounds be banana black */
+/* Make our code backgrounds be dark blue */
 .dark :not(pre) > code[class*="language-"],
 .dark pre[class*="language-"] {
-    background: #1a1604;
+    background: #192326;
 }
 
 /* Make inline codeblocks stand out */
