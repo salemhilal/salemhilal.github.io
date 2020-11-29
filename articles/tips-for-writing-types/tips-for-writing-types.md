@@ -454,7 +454,7 @@ union is treated as `any` itself. Does `0` extend `1 & 0`? Nope. Does `0` extend
 In practice, tests against `any` look like this:
 
 ```ts
-const t: IsAny<ReturnType<formatDateFromUnixTimestamp>> = false;
+const t: IsAny<ReturnType<typeof formatDateFromUnixTimestamp>> = false;
 ```
 
 If that `IsAny` type resolves to `true`, we'd get `const t: true = false`, and
