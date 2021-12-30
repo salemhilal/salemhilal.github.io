@@ -31,7 +31,11 @@
 
         <script>document.documentElement.classList.remove("no-js");window.matchMedia("(prefers-color-scheme: dark)").matches?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark")</script>
         <link rel="stylesheet" href="/style.css" type="text/css" media="all"/>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+        {# <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"> #}
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     </head>
 
     <body class="bg-yellow fade-in black">
@@ -48,7 +52,9 @@
                 <!-- who am i? -->
                 <div class="f3 f2-ns lh-copy">
                     I care about web performance, front-end infrastructure, and public
-                        transportation. I am a software engineer on
+                        transit. I am a founding engineer at 
+                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://www.getoctane.io">Octane</a>, 
+                        and previously a staff engineer on
                     <a class="black link underline hover-bg-black-90 hover-yellow" href="https://www.etsy.com/listing/212856925/million-dollar-frog">Etsy</a>'s
                         Web Platform team. I put my good ideas on
                     <a class="black link underline hover-bg-black-90 hover-yellow" href="https://github.com/salemhilal">GitHub</a>
@@ -61,6 +67,12 @@
                 <!-- TODO: this divider is desktop-only. should it be? -->
                 <div class="f4 b mb4 tc dn-ns">
                   —
+                </div>
+
+                <!-- TypeScript -->
+                <div class="mb4 entry-salem">
+                    I planned and lead the effort to migrate Etsy's codebase to TypeScript. The project was a huge success, and taught me a lot about making large-scale changes without interrupting work. I wrote about the experience 
+                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://codeascraft.com/2021/11/08/etsys-journey-to-typescript/">here</a>.
                 </div>
 
                 <!-- Kevin -->
@@ -95,8 +107,8 @@
                 <!-- Here's my soundcloud -->
                 <div class="mb4 entry-salem">
                     Sometimes I
-                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://soundcloud.com/salemhilal/">make</a>
-                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://soundcloud.com/sleep300">music</a>.
+                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://salemhilal.bandcamp.com/music">make</a>
+                    <a class="black link underline hover-bg-black-90 hover-yellow" href="https://kshack.bandcamp.com/album/reduction-kschk002">music</a>.
                 </div>
 
                 <div class="f4 b mb4 tc">

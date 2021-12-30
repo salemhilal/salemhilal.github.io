@@ -148,17 +148,22 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addFilter("getMonthHeader", function (post, oldPost) {
         const postDate = moment(post.date);
-        const format =
-            postDate.year() == moment().year()
-                ? DATE_FORMAT_MONTH_AND_YEAR
-                : DATE_FORMAT_JUST_MONTH;
+        // This makes more sense if I post more regularly, but given I post like 
+        // once every handful of months, having a section called "November" and a 
+        // section called "November, 2021" immediately below it isn't doing anyone
+        // any favors.
+        // const format =
+        //     postDate.year() == moment().year()
+        //         ? DATE_FORMAT_JUST_MONTH
+        //         : DATE_FORMAT_MONTH_AND_YEAR;
+        const format = DATE_FORMAT_MONTH_AND_YEAR;
 
         if (!oldPost) {
             return postDate.format(format);
         }
         const oldPostDate = moment(oldPost.date);
 
-        if (postDate.month() !== oldPostDate.month()) {
+        if (postDate.month() !== oldPostDate.month() || postDate.year() !== oldPostDate.year()) {
             return postDate.format(format);
         }
         return "";

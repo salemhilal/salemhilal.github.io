@@ -13,7 +13,7 @@
 
 /** My utilities */
 body {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: Inter, sans-serif;
     transition: background-color 0.5s ease;
 }
 
